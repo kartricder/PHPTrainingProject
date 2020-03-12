@@ -2,6 +2,7 @@
 	/**
 	 * CRUD Data table
 	 */
+	namespace ajax_crud\controller;
 	class CrudTable
 	{
 		public $conn;
@@ -14,9 +15,13 @@
 		public function read()
 		{	
 			$query = "SELECT * FROM crud"; 
-			$stmt2 = $this->conn->prepare("Select * from crud");	//echo "1320";
-			$stmt2->execute();
-			return $stmt2;
+			$stmt = $this->conn->prepare("Select * from crud");	//echo "1320";
+			$stmt->execute();
+			return $stmt;
 		}		
+
+		public function create(){
+
+		}
 	}
 ?>

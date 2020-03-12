@@ -2,10 +2,15 @@
 	/**
 	 * CRUD Data table
 	 */
-	class CrudTable
+	namespace ajax_crud\controller;
+	use ajax_crud\model\CrudTable;
+	
+
+
+	class crud extends CrudTable
 	{
 		
-		function __construct(argument)
+		function __construct()
 		{
 			# code...
 		}

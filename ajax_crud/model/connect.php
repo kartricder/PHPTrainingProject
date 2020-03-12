@@ -12,11 +12,12 @@ class AjaxConnect
 
 	public function connection()
 	{
-		$this->conn = null;
+		//$this->conn = null;
 		try {	
-		$this->conn = new PDO("mysql:host=".$this->host . ";dbname=".$this->dbname, $this->user, $this->password); 
+		$pdo = $this->conn = new PDO("mysql:host=".$this->host . ";dbname=".$this->dbname, $this->user, $this->password); 
 		} catch (Exception $e) {
 			echo "Error connection: " . $e->getMessage();	
 		}
+		return $pdo;
 	}
 }
