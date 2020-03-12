@@ -2,14 +2,24 @@
 <html>
 <head>
 	<title>CRUD Model using ajax</title>
-	<?php include_once 'cdn.php'; ?>
+	<?php 
+	include_once 'cdn.php'; ?>
+	
 </head>
 
 <body>
 	<?php 
-		include '../model/connect.php';
+	//required headers
+	
+
+		include_once  '../model/connect.php';
+		include_once '../controller/ajax-controller.php';
 		$database = new AjaxConnect();
 		$db = $database->connection();
+
+		$readProduct =  new CrudTable($db);
+		$readTable = $readProduct->read();
+	
 	?>	
 	<div class="container">
 		<table class="table">
