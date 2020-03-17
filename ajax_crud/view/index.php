@@ -37,17 +37,37 @@
 		  </tbody>
 		</table>
 
-		<form>
+		<form id="form-search" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
 			<div class="form-group">
 				<label for="exampleInputEmail1">Name</label>
-				<input name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+				<input name="email" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
 			</div>
 			<div class="form-group">
 				<label for="exampleInputEmail2">Comments</label>
 				<input name="comment" type="text" class="form-control" id="exampleInputEmail2" placeholder="Password">
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button id="save" type="submit" class="btn btn-primary">Submit</button>
 		</form>
+		<?php 
+			// if ($_POST) {
+			// 	$readProduct->name = $_POST['email'];
+			// 	$readProduct->comments = $_POST['comment'];
+			// 	$readProduct->create();
+			// }
+		?>
 	</div>
+	<script>
+		$(document).on('click', '#save', function(e){
+			var data = $("#form-search").serialize();
+			$.ajax({
+				data: data,
+				type: "post",
+				url: "test.php",
+				success: function(data){
+					alert("Data save: " + data);
+				}
+			});
+		})
+	</script>
 </body>
 </html>
